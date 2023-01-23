@@ -5,6 +5,13 @@
   border-radius: 5px;
   display: block;
 }
+.list-group{
+  display:none;
+}
+.show{
+  display:block;
+}
+
 /* #hello{
   font-size: 15px;
 } */
