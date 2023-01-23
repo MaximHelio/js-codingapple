@@ -10,30 +10,30 @@
 <body>
   <h1 id="hello">안녕하세요</h1>
   <h1 id="hi">JS 초보세요</h1>
-  <div class="alert-box" id="alert1">
+  <div class="alert-box" id="alert">
     알림창임
-    <button onclick="controlModal1('none')">닫기</button>
+    <button id="close">닫기</button>
   </div>
+  <button class="button" onclick="controlModal('block', '아이디')">버튼1</button>
+  <button class="button" onclick="controlModal('block', '비번')">버튼2</button>
 
-  <button onclick="controlModal1('block')">버튼1</button>
-  <button onclick="controlModal2('block')">버튼2</button>
   <script>
-    // function closeModal(){
-    //   document.getElementById('alert').style.display='none';
-    // }
-    // function openModal(){
-    //   document.getElementById('alert').style.display='block';
-    // }
-    function controlModal1(control){
-      document.getElementById('alert1').style.display=control;
-      document.getElementById('alert1').innerHTML = '아이디 입력하세요';
+    // 닫기 버튼 누르면 알림창 사라지게 하는 것
+    // 파라미터 자리에 들어가는 함수 : 콜백함수
+    // 뭔갈 순차적으로 수행하고싶을 때 콜백함수를 요구한다.
+    document.getElementById('close').addEventListener('click', function(){
+      document.getElementById('alert').style.display = 'none';
+      console.log(document.getElementsByClassName('alert-box'));
+    });
+    // 버튼1, 2 누르면 각 알림창 띄워주는 것
+    // document.getElementsByClassName('button').addEventListener('click', function(){
+    //   document.getElementsByClassName('alert-box').style.display='block';
+    // })
+    // 알림창 띄워주는 것
+    function controlModal(control, content){
+      document.getElementsByClassName('alert-box')[0].style.display=control;
+      document.getElementsByClassName('alert-box')[0].innerHTML=content+ '입력하세요';
     }
-    function controlModal2(control){
-      document.getElementById('alert1').style.display=control;
-      document.getElementById('alert1').innerHTML = '비밀번호 입력하세요';
-    }
-  
-
   </script>
 </body>
 </html>
